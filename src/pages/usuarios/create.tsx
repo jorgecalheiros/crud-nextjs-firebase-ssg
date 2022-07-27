@@ -37,8 +37,10 @@ export default function Create() {
         const created = await UserService.addCollection(data);
         if (created) {
             window.location.href = `/usuarios`
+        } else {
+            console.log(created);
         }
-
+        return;
     }
 
     return (

@@ -1,4 +1,4 @@
-import { GetStaticProps, GetStaticPropsResult } from "next";
+import { GetStaticPropsResult } from "next";
 import { User } from "../../@types/User";
 import Container from "../../components/container";
 import Default from "../../layout/default"
@@ -21,11 +21,19 @@ export default function Usuario({ user }: Props) {
 
 export async function getStaticProps({ params }: { params: User }): Promise<GetStaticPropsResult<any>> {
     const [user, error] = await UserService.getByDocument(params.id)
+    if (!error) {
+        return {
+            props: {
+                user
+            },
+            revalidate: 20,
+        }
+    }
     return {
-        props: {
-            user: error ? user : {}
-        },
-        revalidate: 20
+        redirect: {
+            destination: '/',
+            permanent: false
+        }
     }
 }
 
@@ -35,5 +43,4 @@ export async function getStaticPaths() {
         const paths = users.map(user => ({ params: { id: user.id } }))
         return { paths, fallback: 'blocking' }
     }
-
 }

@@ -1,4 +1,4 @@
-import { addDoc, collection, CollectionReference, deleteDoc, doc, DocumentReference, getDoc, getDocs } from "firebase/firestore"
+import { addDoc, collection, CollectionReference, deleteDoc, doc, DocumentReference, getDoc, getDocs, updateDoc } from "firebase/firestore"
 import { DataUser, User } from "../@types/User";
 import { db } from "../firebase/initFirebase"
 
@@ -55,6 +55,16 @@ class UserService {
         try {
             const docRef = doc(db, `usuarios/${id}`);
             await deleteDoc(docRef);
+            return true;
+        } catch (error) {
+            return false;
+        }
+    }
+
+    async updateDocument(id: string, data: DataUser) {
+        try {
+            const docRef = doc(db, `/usuarios/${id}`);
+            await updateDoc(docRef, data);
             return true;
         } catch (error) {
             return false;

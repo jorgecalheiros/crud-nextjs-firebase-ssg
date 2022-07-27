@@ -27,7 +27,10 @@ export default function Delete({ user }: Props) {
         if (deleted) {
             alert("Usuário deletado com sucesso!");
             window.location.href = "/usuarios";
+        } else {
+            console.log(deleted);
         }
+        return;
     }
 
     return (
