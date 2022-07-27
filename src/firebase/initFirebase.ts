@@ -6,12 +6,12 @@ import { collection, getDocs, getFirestore, addDoc } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyA1KeKM-VmbDOHK-OH_F6pKN4Xug3Y9_bs",
-    authDomain: "crud-nextjs-ace53.firebaseapp.com",
-    projectId: "crud-nextjs-ace53",
-    storageBucket: "crud-nextjs-ace53.appspot.com",
-    messagingSenderId: "980649843441",
-    appId: "1:980649843441:web:4511bdcc54f531f0886750"
+    apiKey: "",
+    authDomain: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: ""
 };
 
 // Initialize Firebase
