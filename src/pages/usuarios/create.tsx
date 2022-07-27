@@ -36,6 +36,7 @@ export default function Create() {
 
         const created = await UserService.addCollection(data);
         if (created) {
+            alert("Usuário criado com sucesso!")
             window.location.href = `/usuarios`
         } else {
             console.log(created);
