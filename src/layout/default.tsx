@@ -9,7 +9,7 @@ type Props = {
 
 export default function Default({ children, titlePage }: Props) {
     return (
-        <div className={'bg-gray-200 h-screen'}>
+        <div className={'h-screen'}>
             <Head>
                 <title>{titlePage}</title>
                 <meta name="description" content="Crud nextjs firestore" />
